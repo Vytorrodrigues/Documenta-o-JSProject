@@ -49,6 +49,7 @@ falar(); Aqui eu estou chamando a função para ativala
 
 - **typeof()**: verifica o tipo do elemento, string, object, number
 - **Number()**: transforma elemento em número, usado quando não precisa definir se é inteiro ou decimal
+- **.Number.isInteger()**: verifica se o numero é int e retorna: true para int e false para float
 - **parseInt()**: para transformar em inteiro 
 - **parseFloat()**: para um flutuante
 - **string()**: ou toString() muda para uma string ou só colocar dentro de aspas ""
@@ -63,6 +64,8 @@ ex: .setAttribute(functonA());
 - **.createTextNode()**: cria texto
 - **appendChild()**: adiciona o elemento como filho
 - **append**: acrescenta um elemento
+- **.charAT()**: seleciona um caractere do string
+- **.localeCompare()**: compara os strings de acordo com a localidade, incluindo acentuação etc
 
 # Formatador:
 
@@ -117,6 +120,18 @@ ex: const localizacao = {
         pais: function localidade(){}; -Isso é um método
 }
 - Objetos também podem receber funções em seus valores, o que chamamos de métodos
+- **Desestruturação de Objeto**: criamos uma variavel com o nome da propriedade dentro de chaves{}, para alterar o valor dessa propriedade usamos : (dois pontos)
+ex:
+    let usuario {
+        nome: "Fulano",
+        senha: "1234"
+    }
+
+    const {nome} = usuario;
+    const {nome:Beltrano} = usuario; //Aqui mudamos o valor da propiedade
+
+- Se dermos um console aqui, conseguiriamos ver o valor da propiedade, no caso "Fulano"
+
 
 # Array/Matrizes:
 
@@ -137,7 +152,17 @@ ex: const localizacao = {
 - **.slice(a,b)**: fatia o array a: baseado na posição dos elementos citados, e b: ultima posição especificada não é contada
 - **.sort()**: deixa em ordem alfabética 
 - **.sort((a,b) => a - b)**: usado para ordenar de forma crescente ou .sort(function(a,b) => { return a - b})
-- **indexOf()**:
+- **indexOf()**: busca posição no array
+- **.forEach()**: faz uma iteração pelo array, função para cada elemento do array
+- **.map()**: cria um novo array após mapear o antigo baseado em uma função
+- **.filter()**: filtra o array, criando um novo array
+- **.find()**: faz uma busca no array baseado em uma condição e retorna o primeiro elemento que satisfaça a condição (somente 1)
+- **reduce(acumlador, valor)**: executa uma função retornando um único valor: soma, conta, concatenação etc
+- **.findIndex()**: retorna o números de elementos do array
+- **.include()**: verifica se tem algo incluso, busca strings
+- **.starsWith()**: verifica se a string começa com o valor passado
+- **endsWith()**: verifica se a string termina com o valor passado 
+
 
 # Laços de repetição:
 
@@ -204,6 +229,31 @@ ex:
         }
     }
     const fulano = new Pessoa("Fulano", "45");
+- Atributo privado em uma classe: *#nome_do_atributo*, são usados para não deixar atributos ou métodos acessiveis fora dessa classe. É usado quando precisamos que nenhuma outra classe interfira em um bloco
+- Para desbloquear o atributo, pelo constructor: 
+ex:    
+    constructor(){ 
+        this.#nome_do_atributo = valor que desejo atribuir;
+    }
+- Isso feito antes do constructor
+- Posso usar get e set com atributos privados, deixandos privados
+ex:
+    get #nome_do_atributo(){
+        return this.#nome_do_atributo;
+    }
+    set #nome_do_atributo(atributo){
+        this.#nome_do_atributo = atributo;
+    }
+- Podemos deixar métodos privados tbm:
+ex:
+    #metodo(){}
+- **static(){}**: Usado para chamadas diretas, sem necessidade de criação de objeto
+- **get valorDaPropriedade(){}**: acessa a propriedade, se comporta como ela, mas executa uma função quando chamada
+- **set valorDaPropriedade(novoValor){ this.modeloatributo = novoModelo}**: usado para atribuir um valor a propriedade, também se comporta como propriedade, mas executa uma função ao receber o valor/ validar valor antes de atribuílo a um atributo
+- **extends**: herança de classe por prototipagem, quer dizer que uma função herda as propriedades de outra 
+ex: functionA extends functionB {};
+
+
 
 # DATAS e Manipúlações:
 
@@ -255,6 +305,29 @@ ex:
 - **blob()**: retorna a resposta da requisição como um Blob/ blob(Binary Large Object: é um objeto com dados binários brutos e imutáveis ex: arquivo de imagem, video, audio e outros dados não textuais)
  -**text()**: retorna a resposta da requisição como uma string
 
+# PROGRAMAÇÃO ORIENTADA A OBJETO OU POO:
+
+- Diferente da abordagem procedural(o código é gerado de cima pra baixo), permite códigos escaláveis e com uma boa qualidade de vida, permitindo manutenção e aplicabilidade
+- Usamos funções para atribuir responsabilidades
+- Generalizar com intuito de reuso
+- **MODULARIZAÇÃO DO CÓDIGO**: Fazer um arquivo .js com as funções e fazer os imports deles
+- Antes de fazer as importações, colocar dentro da tag script no código HTML o atributo: type="module"
+ex: 
+    export default function;
+    import function from ./'nome do arquivo';
+- Podemos fazer o export de objetos se forem muitas funções, **ENCAPSULANDO** elas, JS não permitir exportar 2 funções de uma vez se não for assim/ tomar cuidado para não confundir os nomes
+ex:
+    export default {
+        nome que fica visível parra importação: function1,
+        nome que fica visível parra importação: function2
+    }
+
+# SPREADS, RESTS:
+
+- **Spreads**: ... concatena arrays e objetos
+- **Rest**: ... passar informações para dentro de funções, vai dentro dos parametros da função
+- *TODO: FAZER EXEMPLOS*
+
 
 # OBS:
 - .value é usado para obter o valor de um input
@@ -263,6 +336,7 @@ ex:
 ex: "src = '' "
 - A tag script vai no final do código HTML para indicar que o script pegue os respectivos elementos que o antecedem
 - Comentários no JS são feitos com // para comentar linha e /**/ para comentar mais de uma linha
+- \n usado para quebra de linha no JS
 -  JS é fracamente tipado, então se vc somar "5" + 5 ele faz a correção e devolve 10, mas não é bom usar esse método pois pode conter erros de resultados
 - JavaScript lê linha por linha durante a execução do código 
 - **Null:** ausência de valor
