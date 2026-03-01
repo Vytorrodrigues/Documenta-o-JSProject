@@ -7,14 +7,15 @@
 
 # Declaração de variáveis:
 
-- Const, let e var: 
-- Const possui escopo/alcance global e não pode ser alterado
-- Var também possui escopo global, mas ela pode ser mudada facilmente, por isso não é muito bom usa-lá
-- Let possui escopo global e local, a depender de onde for inserida
+- **Const, let e var**: 
+- **Const** possui escopo/alcance global e não pode ser alterado
+- **Var** também possui escopo global, mas ela pode ser mudada facilmente, por isso não é muito bom usa-lá
+- **Let** possui escopo global e local, a depender de onde for inserida
+- Atualmente o recomendado é usar o let e const para evitar sobreposição de variáveis. Deve-se ficar de olho sempre no escopo
 - Escopo é onde e como determinado elemento são acessíveis
 - Variáveis em JS são case sensitive, ou seja: diferenciam letras maíusculas de minúsculas 
 ex: let nome = "Pedro"; é diferente de let Nome = "Pedro";
-- No js vc pode declarar tanto em camel case: nomeObjeto, como em snake case: nome_objeto
+- No js vc pode declarar tanto em camel case: nomeObjeto, como em snake case: nome_objeto DAR PREFRÊNCIA AO CAMELCASE 
 - Não pode usar espaço para declarar uma variável
 
 
