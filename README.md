@@ -78,7 +78,7 @@ ex: .setAttribute(functonA());
 - window, document, body, html etc. São elementos da árvore DOM, eles seguem a linha de como o código HTML é montado, como raízes de uma árvore, aqueles acima são pais dos elementos abaixo
 ex: window -> location
     document -> head/body 
-- **.querySelector("id/class e nome da tagdentro do elemento")**: nome da tag, com id ou classe que vc deseja selecionar no document
+- **.querySelector("id/class e nome da tagdentro do elemento")**: nome da tag, com #id ou .classe que vc deseja selecionar no document
 - **.querySelectorAll("")**: seleciona  todos os elementos de mesmo nome
 - **.getElementById("")**: pega o elemento HTML baseado em seu ID
 - **.getElementByTagName("")**:  não entendi como funciona esse direito *TODO: PESQUISAR*
