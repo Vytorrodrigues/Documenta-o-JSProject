@@ -79,13 +79,17 @@ ex: .setAttribute(functonA());
 ex: window -> location
     document -> head/body 
 - **.querySelector("id/class e nome da tagdentro do elemento")**: nome da tag, com #id ou .classe que vc deseja selecionar no document
-- **.querySelectorAll("")**: seleciona  todos os elementos de mesmo nome
+- **.querySelectorAll("")**: seleciona  todos os elementos de mesmo nome, cria uma lista
+- O querySelector não é suportado por versões antigas dos navegadores(antes de 2008/9)/ por isso usa-se transpiladores ex: babeljs.io
 - **.getElementById("")**: pega o elemento HTML baseado em seu ID
 - **.getElementByTagName("")**:  não entendi como funciona esse direito *TODO: PESQUISAR*
 - **.getElementByName("")[]**: não entendi como funciona esse direito *TODO: PESQUISAR*
 - **.getElementByclassName("")[]**: não entendi como funciona esse direito *TODO: PESQUISAR*
-- **.innerText = ""**: usado para inserir texto no código HTML
-- **.innerHTML = ""**: pega a formatação e passa direto para o código, mas deve ter cuidado para não inserir códigos sensiveis pois pode exibir brechas e permitir invasões no sistema 
+- **.innerText = ""**: usado para inserir texto no código HTML, apenas o texto visível, considera o estilo css
+- - **.textContent = ""**: pega todo texto incluindo o oculto e script, sendo mais rápido
+- Tem o outerText, mas é considerado obsoleto
+- **.innerHTML = ""**: pega a formatação e passa direto para o código, mas deve ter cuidado para não inserir códigos sensiveis pois pode exibir brechas e permitir invasões no sistema
+- - **.value = ""** pega as informações nos campos selecionados
 
 # DOM Events:
 
