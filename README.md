@@ -39,12 +39,13 @@ ex: 1.2, 4.56 etc
 
 # Functions:
 
-- Conjunto de instruções dentro de um determinado escopo, que pode ser ativado ao digitar seu nome
+- Como o próprio nome diz, realiza uma função, uma ação definida por blocos de códigos (instruções) dentro de um escopo, que pode ser ativado ao digitar seu nome
 ex: function falar(){};
 falar(); Aqui eu estou chamando a função para ativala
-- Dentro dos parenteses vão seus parametros ex: event
+- Dentro dos parenteses vão seus parâmetros ex: event
 - Arrow function ou FUNÇÃO ANÔNIMA é a forma simplificada de escrever uma função ex: **() => {};**
 - Muito utilizada em Programação Orientada a Objetos (POO), permite agrupamento e reuso do código, sequência lógica, além de permitir um código escalável, de fácil entendimento, boa manuntenção, prolongando a vida do script
+- 
 
 # Comandos anotados:
 
