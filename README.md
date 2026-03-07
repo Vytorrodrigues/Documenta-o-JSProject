@@ -34,7 +34,7 @@ ex: 1.2, 4.56 etc
 
 # Ternário:
 
-- Teste lógico
+- Teste lógico atribuido á uma variável
 - ? :  -> ->  Teste? True: False;
 
 # Functions:
@@ -209,6 +209,7 @@ ex:
 };
 - No *case* colocamos os casos e suas respectivas condições, no *Default* colocamos um erro, caso as condições não sejam cumpridas
 - O switch funciona de forma literal, igual ao tipo ===
+- É possível colocar um case dentro de outro, resultando em um mesmo valor
 
 
 # Eventos de tempo:
