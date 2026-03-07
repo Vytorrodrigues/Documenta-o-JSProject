@@ -67,6 +67,8 @@ ex: .setAttribute(functonA());
 - **append**: acrescenta um elemento
 - **.charAT()**: seleciona um caractere do string
 - **.localeCompare()**: compara os strings de acordo com a localidade, incluindo acentuação etc
+- **.style.color = "nome da cor"**: muda a cor do parametro
+- O style está relacionado as propriedades css
 
 # Formatador:
 
