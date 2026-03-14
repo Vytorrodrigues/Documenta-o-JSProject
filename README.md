@@ -3,6 +3,7 @@
 - Documentação de todo conteúdo de Javascript que estudei até agora
 - Está documentação é para organizar o conteúdo e facilitar nos estudos e revisões futuras
 - Vocês podem adicionar as anotações de vocês, o objetivo é deixar essa documentação robusta e de fácil entendimento para todos
+- Javascript é uma linguagem dinâmica, possuindo alterar variáveis e até mesmo o tipo das variáveis
 - **LEMBREM DE FAZER OS COMMITS REGISTRANDO AS MUDANÇAS PFV**
 
 # Declaração de variáveis:
@@ -18,6 +19,10 @@ ex: let nome = "Pedro"; é diferente de let Nome = "Pedro";
 - No js vc pode declarar tanto em camel case: nomeObjeto, como em snake case: nome_objeto DAR PREFRÊNCIA AO CAMELCASE 
 - Não pode usar espaço para declarar uma variável
 
+# Hoisting:
+- Usar variáveis ou funções antes mesmo de ser executada, o elemento é movido para o topo do bloco
+- Variáveis são movidas para o topo do seu escopo, mas precisam ser declaradas antes
+- Funções também vão para o topo do escopo 
 
 # Operadores: 
 
@@ -42,9 +47,19 @@ ex: 1.2, 4.56 etc
 - Conjunto de instruções dentro de um determinado escopo, que pode ser ativado ao digitar seu nome
 ex: function falar(){};
 falar(); Aqui eu estou chamando a função para ativala
-- Dentro dos parenteses vão seus parametros ex: event
+- Dentro dos parenteses vão seus argumentos ex: event
+- Dentro da função temos os parãmetros
+- Return dentro da função permite que usemos o valor fora da função
 - Arrow function ou FUNÇÃO ANÔNIMA é a forma simplificada de escrever uma função ex: **() => {};**
 - Muito utilizada em Programação Orientada a Objetos (POO), permite agrupamento e reuso do código, sequência lógica, além de permitir um código escalável, de fácil entendimento, boa manuntenção, prolongando a vida do script
+
+# JSdoc: 
+- Documentar no próprio código o funcionamento das funções, seus argumentos e parâmetros
+- /**
+  *@param {*}email user email
+  *@param {*}password more than 6 characters
+  *@returns //o que a função retorna
+  */
 
 # Comandos anotados:
 
@@ -117,7 +132,7 @@ ex: window -> location
 # Objetos:
 
 - Instância de uma classe
-- Métodos: são instruções
+- Métodos: são instruções, comportamentos desse objeto, funções
 - Propriedade: característica ou atributo de um objeto
 - Objetos são elementos declarados com {} onde recebem uma propriedade e um valor
 ex: const localizacao = {
@@ -336,6 +351,32 @@ ex:
 - **Rest**: ... passar informações para dentro de funções, vai dentro dos parametros da função
 - *TODO: FAZER EXEMPLOS*
 
+# EXCEÇÕES:
+- Condições de imprevisto do código, interrompe o fluxo da operação, pode incluir erro.
+- try - tentativa
+- catch - captura de erro da tentativa
+- finally - condição que vai rodar independente da tentativa ou erro
+- ex: try {
+  //tentativa
+  } catch (error) {
+      //captura do erro
+  } finally {
+      //aqui encerramos as conexões
+      //executa mesmo dando certo ou errado
+  }
+
+# CALLBACKS:
+- Função como argumento de outra
+- Funções com um tempo para ativar
+  ex: function execute(taskName, callback){
+      console.log("Executado tarefa");
+      callback();
+  };
+
+  execute("Download do arquivo...", () => {
+    console.log("Tarefa finalizada.");
+  });
+
 
 # OBS:
 - .value é usado para obter o valor de um input
@@ -349,8 +390,10 @@ ex: "src = '' "
 - JavaScript lê linha por linha durante a execução do código 
 - **Null:** ausência de valor
 - **NaN**: não é um número
-- **Undefined**: variável não inicializada
+- **Undefined**: variável com valor não definido
 - *console.table()*; imprimi em um formato de tabela
+- 0, -1, "", null, undefined, NaN, -> são valores **false**
+- {} (objeto vazio), [] (array vazio), número INT, floats, "Oi" (String com valor dentro), " " (espaço em branco / caractere) -> são valores **true**
 - Ao usar comandos para mudar atributos e criar elementos, adicionar etc. Prestar atenção na ordem do código, pois a posição das declarações muda no HTML
 - A criar uma function em um formulário, devemos usar um event dentro dos parametros da function e chamar um prevent default para evitar que o formulário resete
 ex: function(event){
