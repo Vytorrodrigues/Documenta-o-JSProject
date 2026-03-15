@@ -86,7 +86,7 @@ ex: window -> location
 - **.item()**: seleciona o elemento pela posição dele
 - **.classList**: acessa classe do elemento
 - **.add()**: adiciona uma classe, atribbuido ao classList
-- **.remove()**: remove uma classe, atribuido ao classList
+- **.remove()**: remove uma elemento
 - **.toggle()**: se tiver classe remove, se não tiver adiciona
 - - **typeof()**: verifica o tipo do elemento, string, object, number
 - **Number()**: transforma elemento em número, usado quando não precisa definir se é inteiro ou decimal
