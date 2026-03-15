@@ -61,30 +61,6 @@ falar(); Aqui eu estou chamando a função para ativala
   *@returns //o que a função retorna
   */
 
-# Comandos anotados:
-
-- **typeof()**: verifica o tipo do elemento, string, object, number
-- **Number()**: transforma elemento em número, usado quando não precisa definir se é inteiro ou decimal
-- **.Number.isInteger()**: verifica se o numero é int e retorna: true para int e false para float
-- **parseInt()**: para transformar em inteiro 
-- **parseFloat()**: para um flutuante
-- **string()**: ou toString() muda para uma string ou só colocar dentro de aspas ""
-- **toUpperCase()**: deixa maíusculo
-- **toLowerCase()**: deixa minúsculo
-- **toFixed()**: permite selecionar quantas casas decimais queremos que o número apresente
-- **replace(elemento que quero substituir, elemento que quero adicionar)**: permite alterar uma sequencia de carcateres iu uma string
-- **toLocaleString("pt-br", {style: "currency", currency: "BRL"})**: exibição de valor monetário, euro, dolar, yen, etc
-- **.createElement()**: cria um elemento tag HTML
-- **.setAttribute("atributo, nome")**: coloca um atributo em um elemento HTML, id, class, src etc. Se for uma função tem que colocar os parenteses 
-ex: .setAttribute(functonA());
-- **.createTextNode()**: cria texto
-- **appendChild()**: adiciona o elemento como filho
-- **append**: acrescenta um elemento
-- **.charAT()**: seleciona um caractere do string
-- **.localeCompare()**: compara os strings de acordo com a localidade, incluindo acentuação etc
-- **.style.color = "nome da cor"**: muda a cor do parametro
-- O style está relacionado as propriedades css
-
 # Formatador:
 
 - Ao usar crase pode passar o formatador dentro  ex: `${variável}`
@@ -99,14 +75,43 @@ ex: window -> location
 - **.querySelectorAll("")**: seleciona  todos os elementos de mesmo nome, cria uma lista
 - O querySelector não é suportado por versões antigas dos navegadores(antes de 2008/9)/ por isso usa-se transpiladores ex: babeljs.io
 - **.getElementById("")**: pega o elemento HTML baseado em seu ID
-- **.getElementByTagName("")**:  não entendi como funciona esse direito *TODO: PESQUISAR*
+- **.getElementByTagName("")**: pega o elemento pelo nome da tag
 - **.getElementByName("")[]**: não entendi como funciona esse direito *TODO: PESQUISAR*
-- **.getElementByclassName("")[]**: não entendi como funciona esse direito *TODO: PESQUISAR*
+- **.getElementByclassName("")**: pega o elemento pelo nome da classe
 - **.innerText = ""**: usado para inserir texto no código HTML, apenas o texto visível, considera o estilo css
-- - **.textContent = ""**: pega todo texto incluindo o oculto e script, sendo mais rápido
-- Tem o outerText, mas é considerado obsoleto
+- **.textContent = ""**: pega todo texto incluindo o oculto e script, sendo mais rápido
 - **.innerHTML = ""**: pega a formatação e passa direto para o código, mas deve ter cuidado para não inserir códigos sensiveis pois pode exibir brechas e permitir invasões no sistema
-- - **.value = ""** pega as informações nos campos selecionados
+- **.value = ""** pega as informações nos campos selecionados
+- **.target = ""** exibe quando um elemento é  clicado
+- **.item()**: seleciona o elemento pela posição dele
+- **.classList**: acessa classe do elemento
+- **.add()**: adiciona uma classe, atribbuido ao classList
+- **.remove()**: remove uma classe, atribuido ao classList
+- **.toggle()**: se tiver classe remove, se não tiver adiciona
+- - **typeof()**: verifica o tipo do elemento, string, object, number
+- **Number()**: transforma elemento em número, usado quando não precisa definir se é inteiro ou decimal
+- **.Number.isInteger()**: verifica se o numero é int e retorna: true para int e false para float
+- **parseInt()**: para transformar em inteiro 
+- **parseFloat()**: para um flutuante
+- **string()**: ou toString() muda para uma string ou só colocar dentro de aspas ""
+- **toUpperCase()**: deixa maíusculo
+- **toLowerCase()**: deixa minúsculo
+- **toFixed()**: permite selecionar quantas casas decimais queremos que o número apresente
+- **replace(elemento que quero substituir, elemento que quero adicionar)**: permite alterar uma sequencia de carcateres iu uma string
+- **toLocaleString("pt-br", {style: "currency", currency: "BRL"})**: exibição de valor monetário, euro, dolar, yen, etc
+- **.createElement()**: cria um elemento tag HTML
+- **.setAttribute("atributo, nome")**: coloca um atributo em um elemento HTML, id, class, src etc. Se for uma função tem que colocar os parenteses 
+- **.removeAttribute()**: remove o atributo
+- **.createTextNode()**: cria texto
+- **appendChild()**: adiciona o elemento como filho, mas só um por vez
+- **append()**: acrescenta um elemento após o último filho, pode adicionar mais de um elemento por vez
+- **prepend()**: adiciona um elemento antes do último filho
+- **.charAT()**: seleciona um caractere do string
+- **.localeCompare()**: compara os strings de acordo com a localidade, incluindo acentuação etc
+- **.style.color = "nome da cor"**: muda a cor do parametro
+- **.style** : usado para mudar elementos css
+  
+
 
 # DOM Events:
 
