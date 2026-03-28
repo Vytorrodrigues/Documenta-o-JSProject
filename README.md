@@ -276,13 +276,15 @@ determinado intervalo
 - Herança baseada em protótipos
 - Fábrica de objetos
 - *constructor()* método para criação de objetos, baseado nos valores dentro dos parenteses
-- *this* é usado para criar os atributos das classes, chama os parametros e atribui a um objeto
+- É possível criar classes somente com métodos
+- *this* é usado para criar os atributos das classes, chama os parametros e atribui a um objeto, faz referencia ao contexto
+- Usar PascalCase para nomear classes
 - Para instanciar um objeto é só fazer o seguinte: new nomeClasse() dentro do parentese passo o atributo que quero adicionar entre aspas ""
 ex:
     class User(){
         constructor(email, password){
-            this.email = email, 
-            this.password = password
+            this.email = email;
+            this.password = password;
         }
     }
     const fulano = new User("fulano@email.com", "123345");
@@ -304,11 +306,22 @@ ex:
 - Podemos deixar métodos privados tbm:
 ex:
     #metodo(){}
-- **static(){}**: Usado para chamadas diretas, sem necessidade de criação de objeto
+- **static(){}**: Usado para chamadas diretas, sem necessidade de criação de objeto, deixa o método estático. Perite passar valores pelo método sem instanciar uma classe
 - **get valorDaPropriedade(){}**: acessa a propriedade, se comporta como ela, mas executa uma função quando chamada
 - **set valorDaPropriedade(novoValor){ this.modeloatributo = novoModelo}**: usado para atribuir um valor a propriedade, também se comporta como propriedade, mas executa uma função ao receber o valor/ validar valor antes de atribuílo a um atributo
-- **extends**: herança de classe por prototipagem, quer dizer que uma função herda as propriedades de outra 
-ex: functionA extends functionB {};
+- **extends**: herança de classe por prototipagem, quer dizer que uma função herda as propriedades e métodos de outra 
+ex: class A extends B {};
+- O método herdado pode ser reescrito com uma nova função (Só static metodos)
+
+
+# Prototype chain:
+
+- Cada objeto, array, método tem um link para outro objeto chamado prototype, fazendo uma cadeia até chegar em null onde encerra a cadeia
+- O objeto prototype tem atributo prototype
+ex: ["A", "B", "C"] -> array.prototypr -> objeto.prototype -> null (fim da cadeia)
+- O prototype é o mecanismo pelo qual os objetos em JS herdam recursos uns dos outros
+- O objeto prototype herda do seu prototype ascendente, as propriedades não são do objeto em si, mas sim ao prototype do objeto
+- Um objeto pode usar qualquer propriedade dentro desse encadeiamento
 
 # DATAS e Manipúlações:
 
@@ -435,6 +448,27 @@ ex:
       //aqui encerramos as conexões
       //executa mesmo dando certo ou errado
   }
+
+# Error:
+- Tratamentos de erros são usado para caso ocorra algum erro na aplicação
+- **instanceof**: verifica se a instancia é de tal tipo, usado em erros
+- **TypeError**: tipo de erro
+- -**RangeError**: erro fora do intervalo
+- -**throw**: Usado no try catch para lançar erros, ele pula direto qualquer verificação e vai direto pro catch
+ex: class MyCustomError{
+    constructor(message){
+      this.message = message;
+  }
+};
+try{
+  throw new MyCustomError(`CLASSE DE ERRO CUSTOMIZADA: ${this.message}`);
+} catch(error) {
+    if(error instanceof MyCustomError){
+     console.log(error.message);
+    }else {
+      console.log("Não foi possível executar") 
+    }
+};
 
 # CALLBACKS:
 - Função como argumento de outra
