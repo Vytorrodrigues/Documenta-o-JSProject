@@ -382,7 +382,7 @@ const dateIntl = Intl.DateFormat("padrãoLocal").format(new Date()); - pega  a h
 - O g permite acessar globalmente
 - // Servem para delimitar o começo e fim do regex
 - \ Indica o regex e a letra indica o tipo
-- + Indica que esse regex pode pegar elementos consecutivos
+- **+** Indica que esse regex pode pegar elementos consecutivos
 - **.match()**: verifica se bate a informação
 - **.test()**: testa se atende o padrão
 - **.replace(a, b)**: permite trocar valores, a: valor que deseja trocar / b: o valor que vai substituir
