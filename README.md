@@ -8,6 +8,7 @@
 
 # Declaração de variáveis:
 
+- Variáveis (tipo primitivo) são armazenadas na memória, diferentes de objetos que tem seu valor atribuido a ele (tipo referencial)
 - **Const, let e var**: 
 - **Const** possui escopo/alcance global e não pode ser alterado
 - **Var** também possui escopo global, mas ela pode ser mudada facilmente, por isso não é muito bom usa-lá
@@ -62,7 +63,7 @@ falar(); Aqui eu estou chamando a função para ativala
   */
 
 # Formatador:
-
+- Permite a interpolação
 - Ao usar crase pode passar o formatador dentro  ex: `${variável}`
 - Formatadores ajudam a evitar muitas concatenações, a depender do caso
 
@@ -80,14 +81,14 @@ ex: window -> location
 - **.getElementByclassName("")**: pega o elemento pelo nome da classe
 - **.innerText = ""**: usado para inserir texto no código HTML, apenas o texto visível, considera o estilo css
 - **.textContent = ""**: pega todo texto incluindo o oculto e script, sendo mais rápido
-- **.innerHTML = ""**: pega a formatação e passa direto para o código, mas deve ter cuidado para não inserir códigos sensiveis pois pode exibir brechas e permitir invasões no sistema
+- **.innerHTML = ""**: pega a formatação em código e passa direto para o código, mas deve ter cuidado para não inserir códigos sensiveis pois pode exibir brechas e permitir invasões no sistema. Permite consturir elementos html e inserir com JS
 - **.value = ""** pega as informações nos campos selecionados
 - **.target = ""** exibe quando um elemento é  clicado
 - **.item()**: seleciona o elemento pela posição dele
-- **.classList**: acessa classe do elemento
-- **.add()**: adiciona uma classe, atribbuido ao classList
+- **.classList()**: acessa classe do elemento
+- **.add()**: adiciona uma classe, atribuido ao classList
 - **.remove()**: remove uma elemento
-- **.toggle()**: se tiver classe remove, se não tiver adiciona
+- **.toggle()**: se tiver classe remove, se não tiver adiciona, atribuido ao ClassList
 - - **typeof()**: verifica o tipo do elemento, string, object, number
 - **Number()**: transforma elemento em número, usado quando não precisa definir se é inteiro ou decimal
 - **.Number.isInteger()**: verifica se o numero é int e retorna: true para int e false para float
@@ -111,8 +112,6 @@ ex: window -> location
 - **.style.color = "nome da cor"**: muda a cor do parametro
 - **.style** : usado para mudar elementos css
   
-
-
 # DOM Events:
 
 - **onclick**: ao clicar com o mouse no elemento
@@ -139,6 +138,8 @@ ex: window -> location
 - Instância de uma classe
 - Métodos: são instruções, comportamentos desse objeto, funções
 - Propriedade: característica ou atributo de um objeto
+- Objeto dentro de outro é um aninhamento de objetos
+- Declarar com snake_case
 - Objetos são elementos declarados com {} onde recebem uma propriedade e um valor
 ex: const localizacao = {
         cidade: "João Pessoa",
@@ -156,9 +157,34 @@ ex:
 
     const {nome} = usuario;
     const {nome:Beltrano} = usuario; //Aqui mudamos o valor da propiedade
+    console.log(usuario.nome) - acessando objeto
 
 - Se dermos um console aqui, conseguiriamos ver o valor da propiedade, no caso "Fulano"
+- Para acessar objeto(atributos e métodos) chamamos assim: objeto.atributo ou objeto["atirbuto"] / objeto.metodo()
+- Podemos usar o this para acessalos também
+- **new**: Instancia de um objeto, usado para instanciar novos objetos
+ex:
+ function constructor(parametro){
+     const obj = {};
+     obj.parametro = parametro;
 
+     return obj;
+}
+
+# Opitional Chaining(?):
+- ? antes do . para acessar objetos
+- Encadeamento opcional
+- Permite acessar valores sem saber o conteúdo do objeto e retorna null, nulish, undefined
+ex: objeto?.atributo -> retorna o valor
+
+# Coalescência Nula(??):
+
+- Verifica se é null ou undefined
+- Se dor nulo retorna o valor da direita, se não seu conteúdo
+ex: const nulo = null;
+    const coalescencia = nulo ?? "Confirmado nulidade";
+    console.log(coalescencia);
+- Nesse caso o valor retornado seria "Confirmado nulidade", pois eu define uma váriavel do tipo nula
 
 # Array/Matrizes:
 
@@ -167,14 +193,16 @@ ex:
 - As posições do array são contadas a partir do 0, ou seja: let arr = [1, 2, 3, 4]; equivale a 0, 1, 2, 3 em relação as posições
 - **Array.isarray()**: é usado para descobrir se tal elemento é um array
 
-- **.join()**: troca separador dos itens do meu array
+- **.join()**: troca separador dos itens do meu array / une textos
 - **.pop()**: remove o último elemento do array
 - **.shift()**: remove o primeiro elemento 
-- **.lenght()**: mostra quantos elementos/comprimento do array 
+- **.lenght()**: mostra quantos elementos/comprimento do array/Strings
 - **array[array.length - 1(aqui eu passo o valor de quantos elementos quero verificar)]**: verifica o elemento do array e me retorna seu valor, de trás para frente
 - **unshift()**: adiciona um item a primeira posição
 - **.push()**: adiciona elementos no final
-- **.splice( posição do elemento, quantidade de itens que quero remover, qual item quero adicionar)**;
+- **.splice( posição do elemento, quantidade de itens que quero remover, qual item quero adicionar)**
+- **split()**: separa baseado em um intervalo e transforma em um novo array
+- **.from()**: separa cada letra e elemento do array, incluindo espaços
 - **.concat()**: soma arrays
 - **.slice(a,b)**: fatia o array a: baseado na posição dos elementos citados, e b: ultima posição especificada não é contada
 - **.sort()**: deixa em ordem alfabética 
@@ -196,8 +224,8 @@ ex:
 - **For, While**;
 - **For**: usamos quando temos uma quantidade definida de loops, *for(inicialização, enquanto/teste lógico, /o que o código deve fazer){}*;
 ex: um incremento -> -> *for(let i = 0; i < array.length; i++){console.log(array[i])};* esse código faz uma iteração passando por todos os elementos de um array (iterar: executar repetidamente)
-- **for in**: *for (var in array)* usado para ver os índices/valores 
-- **for of**: *for (var array of array)* interação pelas propriedades
+- **for in**: *for (var in array)* interação em objetos e arrays
+- **for of**: *for (var array of array)* interação pelas propriedades do objeto, só intera objeto se o obj estiver dentro do array
 - **While:** usamos quando não sabemos a quantidades de loops a serem definidos, a variável de iteração é declarada fora do loop
 - *while(condição){ código, incremento};*
 - *do {código, incremento} while(condição);*
@@ -209,6 +237,7 @@ ex:
         i++
     };
 - Nesse exemplo, assim como o do for, eu estou passando por cada elemento do array e imprimindo ele para ver seu elementos, se eu quisesse saber as posições bastava imprimir somente a váriavel de iteração i
+- **continue**: pula a execução e vai para próxima
 
 # Condições:
 
@@ -223,7 +252,7 @@ ex:
         break
     case2:
         resultado que eu quero
-        break
+        break //quebra o loop 
     default:  
         break
 };
@@ -239,7 +268,7 @@ ex:
 - **setInterval(função, tempo em milisegundos)**: executa repetidamente em 
 determinado intervalo
 - **clearTimeout(), clearInterval()**: usado para parar esse evento de tempo, definimos eles a uma váriavel e colocamos essa váriavel dentro do clear
-- 1000 = 1 segundo
+- 1000 milisegundos = 1 segundo
 
 # Classes:
 
@@ -247,16 +276,16 @@ determinado intervalo
 - Herança baseada em protótipos
 - Fábrica de objetos
 - *constructor()* método para criação de objetos, baseado nos valores dentro dos parenteses
-- *this* é usado para criar os atributos das classes
-- Para criar um novo objeto é só fazer o seguinte: new nome da classe() dentro do parentese passo o atributo que quero adicionar entre aspas ""
+- *this* é usado para criar os atributos das classes, chama os parametros e atribui a um objeto
+- Para instanciar um objeto é só fazer o seguinte: new nomeClasse() dentro do parentese passo o atributo que quero adicionar entre aspas ""
 ex:
-    class Pessoa(){
-        constructor(nome, idade){
-            this.nome = nome; 
-            this.idade = idade;
+    class User(){
+        constructor(email, password){
+            this.email = email, 
+            this.password = password
         }
     }
-    const fulano = new Pessoa("Fulano", "45");
+    const fulano = new User("fulano@email.com", "123345");
 - Atributo privado em uma classe: *#nome_do_atributo*, são usados para não deixar atributos ou métodos acessiveis fora dessa classe. É usado quando precisamos que nenhuma outra classe interfira em um bloco
 - Para desbloquear o atributo, pelo constructor: 
 ex:    
@@ -281,23 +310,46 @@ ex:
 - **extends**: herança de classe por prototipagem, quer dizer que uma função herda as propriedades de outra 
 ex: functionA extends functionB {};
 
-
-
 # DATAS e Manipúlações:
 
-- **new Date()**: var.getHours(); -> pega a hora atual do pc
-- **.getDay**: começa contar do domingo, por ser um array vai de 0 á 6
+- **new Date()**: pega a hora e data atual do pc
+- O new Date() leva em consideração o mês padrão de 0 á 12 se passado com aspas
+- Existem 2 formas de definir data, seguindo o padrão americano (ano, mês, dia):
+ex: new Date(2025, 08, 13, 09, 25, 00) / new Date("2025-08-13T09:25:00") / new Date("August 13, 2023, 09:25:00")
+- **.getDay()**: pega o dia e começa contar do domingo, por ser um array vai de 0 á 6
 - **.getFullyear()**: pega o ano atual
-- **.getMonth()**: pega o mês atual, array que vai de 0 - janeiro á 11 - dezembro
+- **.getMonth()**: pega o mês atual, array que vai de 0 á 11 - janeiro á dezembro
 - **.getDate()**: pega os dias do mês, 1 á 31
 - **.getHours()**: horas de 0 á 23
 - **.getMinutes()**: minutos de 0 até 59
 - **.getSeconds()**: 0 até 59
 - **.getMilliseconds()**: 0 até 999
 - **setDate, Hours etc(atributo, valor que deseja acrescentar)**: usado para acrescentar dias, horas, minutos, segundos etc
-- **.tolocaleString()**: data do país para encurtar a impressão posso passar *{sateStyle/timeStyle:"short"}* dentro do parêntese para encurtar o valor
+- **.toLocaleString()**: data do país
+.toLocaleString("pt-br", {
+    dateStyle: "short/long/medium/full"
+    timeStyle - estiliza hora
+    day: "2-digit"
+    month: -- configura os digitos da impressão
+    hour: -- configura os digitos da impressão
+    minute: -- configura os digitos da impressão
+})
+- Ainda posso usar o toLocaleString() para moedas locais
+ex: .toLocaleString(valor, {
+    style: "currency"
+    currency: "tipo da moeda"
+})
+- **.toTimeString() / .toLocaleTimeString()**: um passa a data sem o padrão de brasilia e o outro passa com
 - Date.parse(data) converte para milisegundos *TODO: pesquisar, não entendi com funciona*
-
+- JavaScript conta a data a partir de 00:00h de 01/01/1970 UTC(Coordinated Universal Time)
+- O Fuso horário local é baseado no ambiente executado
+- **Intl API - Internacionalizção:** API para datas locais
+ex:
+const date = Intl.DateTimeFormat().resolvedOption(); - Vemos os objetos da chamada da Api e seus atributos
+const dateIntl = Intl.DateFormat("padrãoLocal").format(new Date()); - pega  a hora local
+- **.getTimeZoneOffset():** diferença de fuso em minutos (dividiu por 60 resulta em horas)
+- **.toISOString():** Retorna padrão de timezone - diferença de fuso
+  
 # Math:
 
 - Usado para fazer cálculos matemáticos
@@ -307,6 +359,20 @@ ex: functionA extends functionB {};
 - **random()**: valor aleatório entre 0 e 1, ex: 0.3455
 - **floor()**: retorna a parte inteira
 - **pow(a, b)**: base A elevada ao expoente B
+
+# Regex:
+
+- Expressões regulares
+- utilizado para fazer verificações de dados
+- /\D+/g -> regex para captar strings
+- /\s/g -> regex para captar espaços
+- O g permite acessar globalmente
+- // Servem para delimitar o começo e fim do regex
+- \ Indica o regex e a letra indica o tipo
+- + Indica que esse regex pode pegar elementos consecutivos
+- **.match()**: verifica se bate a informação
+- **.test()**: testa se atende o padrão
+- **.replace(a, b)**: permite trocar valores, a: valor que deseja trocar / b: o valor que vai substituir
 
 
 # JAVASCRIPT OBJET NOTATION ou JSON:
@@ -377,6 +443,9 @@ ex:
       console.log("Executado tarefa");
       callback();
   };
+  function callback(){
+      console.log("Tarefa finalizada");
+  };
 
   execute("Download do arquivo...", () => {
     console.log("Tarefa finalizada.");
@@ -384,7 +453,10 @@ ex:
 
 
 # OBS:
-- .value é usado para obter o valor de um input
+
+- **.padStart/End(a, b)**: preenche String a partir do inicio ou do final. a: numero de elementos / b: valor que quero trocar
+-**.trim()**: Remove espaços em banco do inicio e final da string
+- **.value**: é usado para obter o valor de um input
 - Declarar um input.value = ""; quer dizer que estou declarando para o input ser limpo
 - Usar src dentro de aspas duplas necessita aspas simples
 ex: "src = '' "
@@ -396,7 +468,7 @@ ex: "src = '' "
 - **Null:** ausência de valor
 - **NaN**: não é um número
 - **Undefined**: variável com valor não definido
-- *console.table()*; imprimi em um formato de tabela
+- **console.table()**; imprimi em um formato de tabela
 - 0, -1, "", null, undefined, NaN, -> são valores **false**
 - {} (objeto vazio), [] (array vazio), número INT, floats, "Oi" (String com valor dentro), " " (espaço em branco / caractere) -> são valores **true**
 - Ao usar comandos para mudar atributos e criar elementos, adicionar etc. Prestar atenção na ordem do código, pois a posição das declarações muda no HTML
