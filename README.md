@@ -146,7 +146,9 @@ ex: const localizacao = {
         cep: 679802,
         rua: "Antonio Valdenor Labamda"
         pais: function localidade(){}; -Isso é um método
+
 }
+- Objetos literais são objetos com propriedades e métodos
 - Objetos também podem receber funções em seus valores, o que chamamos de métodos
 - **Desestruturação de Objeto**: criamos uma variavel com o nome da propriedade dentro de chaves{}, para alterar o valor dessa propriedade usamos : (dois pontos)
 ex:
@@ -323,7 +325,7 @@ ex: ["A", "B", "C"] -> array.prototypr -> objeto.prototype -> null (fim da cadei
 - O objeto prototype herda do seu prototype ascendente, as propriedades não são do objeto em si, mas sim ao prototype do objeto
 - Um objeto pode usar qualquer propriedade dentro desse encadeiamento
 
-# DATAS e Manipúlações:
+# DATAS e Manipulações:
 
 - **new Date()**: pega a hora e data atual do pc
 - O new Date() leva em consideração o mês padrão de 0 á 12 se passado com aspas
@@ -417,16 +419,16 @@ const dateIntl = Intl.DateFormat("padrãoLocal").format(new Date()); - pega  a h
 - Diferente da abordagem procedural(o código é gerado de cima pra baixo), permite códigos escaláveis e com uma boa qualidade de vida, permitindo manutenção e aplicabilidade
 - Usamos funções para atribuir responsabilidades
 - Generalizar com intuito de reuso
-- **MODULARIZAÇÃO DO CÓDIGO**: Fazer um arquivo .js com as funções e fazer os imports deles
+- **MODULARIZAÇÃO DO CÓDIGO**: Fazer um arquivo com classes e métodos e fazer os imports dessas classes
 - Antes de fazer as importações, colocar dentro da tag script no código HTML o atributo: type="module"
 ex: 
     export default function;
     import function from ./'nome do arquivo';
-- Podemos fazer o export de objetos se forem muitas funções, **ENCAPSULANDO** elas, JS não permitir exportar 2 funções de uma vez se não for assim/ tomar cuidado para não confundir os nomes
+- Podemos fazer o export de objetos se forem muitas funções, **ENCAPSULANDO** elas, JS não permitir exportar mais de um método de uma vez se não for assim/ tomar cuidado para não confundir os nomes
 ex:
     export default {
-        nome que fica visível parra importação: function1,
-        nome que fica visível parra importação: function2
+        nomeDoQueVouexportar: método1,
+        nomeDoQueVouexportar: método2,
     }
 
 # SPREADS, RESTS:
