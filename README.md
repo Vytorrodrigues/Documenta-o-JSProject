@@ -11,7 +11,7 @@
 
 - Ecmascript é diferente do javascript, ele especifica como o JS funciona
 
-# Stric mode:
+# Strict mode:
 
 - "use strict";
 - Serve para definir correções no código, evita erros silenciosos. Podendo inibir algumas funcionalidades também
