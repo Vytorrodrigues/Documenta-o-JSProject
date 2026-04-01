@@ -6,6 +6,16 @@
 - Javascript é uma linguagem dinâmica, possuindo alterar variáveis e até mesmo o tipo das variáveis
 - **LEMBREM DE FAZER OS COMMITS REGISTRANDO AS MUDANÇAS PFV**
 
+
+# Ecmascript:
+
+- Ecmascript é diferente do javascript, ele especifica como o JS funciona
+
+# Stric mode:
+
+- "use strict";
+- Serve para definir correções no código, evita erros silenciosos. Podendo inibir algumas funcionalidades também
+
 # Declaração de variáveis:
 
 - Variáveis (tipo primitivo) são armazenadas na memória, diferentes de objetos que tem seu valor atribuido a ele (tipo referencial)
@@ -148,19 +158,30 @@ ex: const localizacao = {
         pais: function localidade(){}; -Isso é um método
 
 }
-- Objetos literais são objetos com propriedades e métodos
-- Objetos também podem receber funções em seus valores, o que chamamos de métodos
+- Objetos literais são objetos simples com propriedades (atributo, valor) e métodos
 - **Desestruturação de Objeto**: criamos uma variavel com o nome da propriedade dentro de chaves{}, para alterar o valor dessa propriedade usamos : (dois pontos)
 ex:
-    let usuario {
-        nome: "Fulano",
-        senha: "1234"
+    let user {
+        name: "Fulano",
+        pass: "1234"
     }
 
-    const {nome} = usuario;
-    const {nome:Beltrano} = usuario; //Aqui mudamos o valor da propiedade
-    console.log(usuario.nome) - acessando objeto
+    const {name} = usuario;
+    const {name:Beltrano} = usuario; //Aqui mudamos o valor da propiedade
+    console.log(user.name) - acessando objeto
+    //desestruturando obj com um método
+    const {user, pass} =  user;
+- Podemos desestruturar os objetos com métodos também
+- É MUITO IMPORTANTE SEGUIR A ORDEM DOS NATRIBUTOS NA DESESTRUTURAÇÃO
+    function newUser({user, pass}){
+      //código
+    };
 
+    newUser({
+      name: novo valor
+      pass: novo valor
+    });
+  
 - Se dermos um console aqui, conseguiriamos ver o valor da propiedade, no caso "Fulano"
 - Para acessar objeto(atributos e métodos) chamamos assim: objeto.atributo ou objeto["atirbuto"] / objeto.metodo()
 - Podemos usar o this para acessalos também
@@ -193,8 +214,12 @@ ex: const nulo = null;
 - Usada para armazenar valores, objetos, variáveis etc. Ela é armazenada em uma variável
 - Array vazio: let arr = [];
 - As posições do array são contadas a partir do 0, ou seja: let arr = [1, 2, 3, 4]; equivale a 0, 1, 2, 3 em relação as posições
-- **Array.isarray()**: é usado para descobrir se tal elemento é um array
+- **Desestruturação de array**: para desestruturar um array atribuimos um array de variáveis ao array antigo, estabelecendo váriaveis aos conteúdos do índice
+- _ ou , ignora elementos do array. Para selecionar a posição do elemento que você quer
+ex: const arr = [a, b];
+    const newArr [variavelA, variavelB] = arr
 
+- **Array.isarray()**: é usado para descobrir se tal elemento é um array
 - **.join()**: troca separador dos itens do meu array / une textos
 - **.pop()**: remove o último elemento do array
 - **.shift()**: remove o primeiro elemento 
@@ -211,11 +236,11 @@ ex: const nulo = null;
 - **.sort((a,b) => a - b)**: usado para ordenar de forma crescente ou .sort(function(a,b) => { return a - b})
 - **indexOf()**: busca posição no array
 - **.forEach()**: faz uma iteração pelo array, função para cada elemento do array
-- **.map()**: cria um novo array após mapear o antigo baseado em uma função
-- **.filter()**: filtra o array, criando um novo array
-- **.find()**: faz uma busca no array baseado em uma condição e retorna o primeiro elemento que satisfaça a condição (somente 1)
-- **reduce(acumlador, valor)**: executa uma função retornando um único valor: soma, conta, concatenação etc
-- **.findIndex()**: retorna o números de elementos do array
+- **.map()**: cria um novo array após mapear o antigo baseado em uma callback
+- **.filter()**: filtra o array antigo, criando um novo array
+- **.find()**: faz uma busca no array baseado em uma condição e retorna seu conteúdo
+- **reduce((accumulator, currentValue, index) => {}, value)**: executa uma função retornando um único valor(value): soma, conta, concatenação etc
+- **.findIndex()**: retorna o indice do array do primeiro elemento que satisfaça a condição. Caso contrário retorna -1 (Se tiver o use strict ativo no código ele da erro)
 - **.include()**: verifica se tem algo incluso, busca strings
 - **.starsWith()**: verifica se a string começa com o valor passado
 - **endsWith()**: verifica se a string termina com o valor passado 
@@ -433,9 +458,12 @@ ex:
 
 # SPREADS, RESTS:
 
-- **Spreads**: ... concatena arrays e objetos
-- **Rest**: ... passar informações para dentro de funções, vai dentro dos parametros da função
-- *TODO: FAZER EXEMPLOS*
+- **Spreads**: ... permite que objetos iteraveis (expressões de arrays ou strings) seja expandido p/ ser usdao como arguento. Separa os elementos
+- ex: (...elemento/nome do objeto, array)
+- **Rest**: ...rest (vai como parâmetro dentro da função)
+- Recebe vários informações de uma vez
+- Conhecido como args
+- ex: ...args / ...rest
 
 # EXCEÇÕES:
 - Condições de imprevisto do código, interrompe o fluxo da operação, pode incluir erro.
@@ -490,6 +518,7 @@ try{
 
 # OBS:
 
+- **SINTAXE REDUZIDA:** usado quando quero acessar itens ou definir condições simples, as {} você usa quando quer fazer blocos de código
 - **.padStart/End(a, b)**: preenche String a partir do inicio ou do final. a: numero de elementos / b: valor que quero trocar
 -**.trim()**: Remove espaços em banco do inicio e final da string
 - **.value**: é usado para obter o valor de um input
