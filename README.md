@@ -245,6 +245,69 @@ ex: const arr = [a, b];
 - **.starsWith()**: verifica se a string começa com o valor passado
 - **endsWith()**: verifica se a string termina com o valor passado 
 
+# Imutabilidade
+
+- Impede que o elemento principal seja alterado
+- Cria-se um cópia e a modifica, mantendo o original
+- Podemos fazer uam referência, assim permitindo alterar os dois objetos
+ex:    const objA = {
+        atributoA:  valorA,
+        atributo: valoB
+  };
+const objB = objA; //referência
+- Para poder fazer as alterações só em um, devemos criar um novo objeto. Pra isso usamos o spread
+ex: const objA = {atributos}
+    const objB = {...objA}
+- Assim temos um novo objeto na memória e o outro permanece imutável
+- Devemos respeitar a ordem dos elementos e colocar o spread sempre primeiro, se não os valores passados pelo spread irão substituir os anteriores
+- O mesmo vale para arrays também
+- **Detectar mudanças** de objetos mutados é difícil, pois são mudados diretamente. Isso requer um objeto mutado p/ ser comparado as cópias de suas própria versões anteriores e uma árvore inteira de objetos p/ ser cruzada.
+- **Objetos imutáveis** é mais fácil, se for referente ao anterior, concluimos que teve mudança
+
+# Deep copy
+
+- Valores referenciados
+- Pesquisa mais profunda
+- Pega itens aninhados (objetos e arrays)
+- Utilização de spreads
+ex: const objA = { atributoA: valorA, atributoB: [ { atributoC: valoC } ] };
+    const objB = { ...objA, atributoB: [ ...objA.atributoB ] };
+- Ao fazer as modificações, será possível acessar o objeto/array aninhado aninhado
+
+# Shalow copy
+
+- Valores primitivos
+- Copia superficial, não pega os itens aninhados
+- O que altera em A, altera em B também.
+- É um elemento referenciado
+ex: const objA = { atributoA: valorA, atributoB: valorB };
+    const objB = { ...objA, atributoB: valorC };
+
+# Shalow Freeze
+
+- Impede modificações de objetos
+- Não é uma modificação profunda (não funciona em objetos aninhados)
+- Js em si não impede a modificação de objetos
+ex: Object.freeze(nome do objeto);
+
+# Deep freeze
+
+- Imutabilidade total de um objeto, incluindo aninhados
+- Para isso aplicamos uma função
+ex: function deepFreeze(object){
+     //pega as propriedades do objeto
+    const props Reflect.ownKeys(object);
+    //iteração nas propriedades do objeto
+    for (let prop of props) {
+      const value = object[prop]; //valor da propriedade
+  };
+
+  //verificação p/ aplicar deepFreeze no objeto
+  if (value && typeof === "object" || typeof === "function") {
+     deepFreeze(value);
+  };
+  return Object.freeze(object);
+};
 
 # Laços de repetição:
 
